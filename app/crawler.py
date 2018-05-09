@@ -55,36 +55,3 @@ def search_all(pixiv_id, password, words, mode=None):
         count = crawler.get_search_count()
         print(f"{word}: {count}件")
         time.sleep(3)
-
-
-if __name__ == '__main__':
-    from datetime import date
-    import os
-    from models import Word, SearchResult
-    pixiv_id = os.environ['PIXIV_ID']
-    pixiv_password = os.environ['PIXIV_PASSWORD']
-    words = [w for w in Word.select().order_by(Word.id)]
-    crawler = PixivCrawler()
-    crawler.login(pixiv_id, pixiv_password)
-    for word in words:
-        data = {'word': word, 'stored_at': date.today()}
-        try:
-            SearchResult.get(
-                word=data['word'],
-                stored_at=data['stored_at'],
-            )
-        except SearchResult.DoesNotExist:
-            for mode in ('safe', 'r18'):
-                crawler.search(word.text, mode)
-                if mode == 'safe':
-                    data['safe'] = count = crawler.get_search_count()
-                else:
-                    data['r18'] = count = crawler.get_search_count()
-                time.sleep(3)
-
-            SearchResult.create(
-                word=data['word'],
-                stored_at=data['stored_at'],
-                num_of_safe=data['safe'],
-                num_of_r18=data['r18'],
-            )
