@@ -1,53 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <style>
-    table {
-      margin: 0 auto;
-      border-top: solid 1px #666;
-      border-bottom: solid 1px #666;
-      border-collapse: separate;
-      border-spacing: 0 10px;
-      background: #f5f5f5;
-    }
-    th {
-      vertical-align: middle;
-      height: 53px;
-      width: 124px;
-      border-right: solid 1px #666;
-      margin: 0;
-      text-align: center;
-      color: #333;
-      font-size: 16px;
-      font-weight: bold;
-    }
-    td {
-      padding: 0;
-      margin: 0;
-      height: 2em;
-      width: 100px;
-      border: none;
-      color: #666;
-      line-height: 16px;
-      text-align: center;
-      vertical-align: middle;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-    td:fst-child {
-      padding: 0 0 0 10px;
-      vertical-align: middle;
-    }
-    td.bar {
-      height: 1px;
-      width: 100%;
-      border-top: solid 1px #34495e;
-    }
-  </style>
-</head>
-<body>
+{% extends "base.html" %}
+{% block body %}
+<a href="/words/">検索ワード一覧へ</a>
+
   <table>
     <thead>
       <tr>
@@ -70,7 +24,4 @@
      {% endfor %}
     </tbody>
   </table>
-
-
-</body>
-</html>
+{% endblock %}
