@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block body %}
+<a href="/">TOP</a> / <a href="/words/">検索ワード一覧</a> / {{ word_text }}
+
+  <table>
+    <thead>
+      <tr>
+        <th>名前</th>
+        <th>登録日</th>
+        <th>すべて</th>
+        <th>一般</th>
+        <th>R18</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for result in results %}
+      <tr>
+        <td>{{ result.word.text }}</td>
+        <td>{{ result.stored_at }}</td>
+        <td>{{ result.num_of_all }}</td>
+        <td>{{ result.num_of_safe}}</td>
+        <td>{{ result.num_of_r18}}</td>
+      </tr>
+     {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

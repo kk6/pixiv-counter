@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block body %}
+<a href="/">TOP</a> / 検索ワード一覧</a>
+
+  <ul>
+    {% for word in words %}
+    <li><a href="{{ word.text }}">{{ word.text }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
