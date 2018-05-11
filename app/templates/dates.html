@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block body %}
+<a href="/">TOP</a> / 登録日一覧</a>
+
+  <ul>
+    {% for date in dates %}
+    <li><a href="{{ date }}">{{ date }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
