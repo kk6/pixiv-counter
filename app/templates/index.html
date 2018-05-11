@@ -8,6 +8,7 @@
         <th>すべて</th>
         <th>一般</th>
         <th>R18</th>
+        <th>R18率</th>
       </tr>
     </thead>
     <tbody>
@@ -16,8 +17,9 @@
         <td><a href="/word/{{ result.word.text }}">{{ result.word.text }}</a></td>
         <td>{{ result.stored_at }}</td>
         <td>{{ result.num_of_all }}</td>
-        <td>{{ result.num_of_safe}}</td>
-        <td>{{ result.num_of_r18}}</td>
+        <td>{{ result.num_of_safe }}</td>
+        <td>{{ result.num_of_r18 }}</td>
+        <td>{{ result.rate_of_r18 }}</td>
       </tr>
      {% endfor %}
     </tbody>
