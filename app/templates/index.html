@@ -1,9 +1,6 @@
-{% extends "base.html" %}
-{% block body %}
-<a href="/word/">検索ワード一覧へ</a>
-<a href="/date/">登録日一覧へ</a>
-
-  <table>
+{% extends "layout.html" %}
+{% block content %}
+  <table class="table">
     <thead>
       <tr>
         <th>名前</th>
@@ -16,7 +13,7 @@
     <tbody>
       {% for result in results %}
       <tr>
-        <td>{{ result.word.text }}</td>
+        <td><a href="/word/{{ result.word.text }}">{{ result.word.text }}</a></td>
         <td>{{ result.stored_at }}</td>
         <td>{{ result.num_of_all }}</td>
         <td>{{ result.num_of_safe}}</td>

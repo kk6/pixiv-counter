@@ -1,7 +1,6 @@
-{% extends "base.html" %}
-{% block body %}
-<a href="/">TOP</a> / 検索ワード一覧</a>
-
+{% extends "layout.html" %}
+{% block content %}
+  <h1>登録ワード一覧</h1>
   <ul>
     {% for word in words %}
     <li><a href="{{ word.text }}">{{ word.text }}</a></li>

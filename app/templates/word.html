@@ -1,8 +1,6 @@
-{% extends "base.html" %}
-{% block body %}
-<a href="/">TOP</a> / <a href="/word/">検索ワード一覧</a> / {{ word_text }}
-
-  <table>
+{% extends "layout.html" %}
+{% block content %}
+  <table class="table">
     <thead>
       <tr>
         <th>名前</th>
