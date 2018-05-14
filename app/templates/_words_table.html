@@ -1,0 +1,32 @@
+  <table class="table">
+    <thead>
+      <tr>
+        <th nowrap="">名前</th>
+        <th nowrap="">登録日</th>
+        <th nowrap="">すべて</th>
+        <th nowrap="">増加（すべて）</th>
+        <th nowrap="">一般</th>
+        <th nowrap="">増加（一般）</th>
+        <th nowrap="">R18</th>
+        <th nowrap="">増加（R18）</th>
+        <th nowrap="">R18率</th>
+        <th nowrap="">増加（R18率）</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for result in results %}
+      <tr>
+        <td nowrap=""><a href="/word/{{ result.word.text }}">{{ result.word.text }}</a></td>
+        <td nowrap="">{{ result.stored_at }}</td>
+        <td>{{ result.num_of_all }}</td>
+        <td>{{ result.all_increase}}</td>
+        <td>{{ result.num_of_safe }}</td>
+        <td>{{ result.safe_increase}}</td>
+        <td>{{ result.num_of_r18 }}</td>
+        <td>{{ result.r18_increase}}</td>
+        <td>{{ result.rate_of_r18 }}</td>
+        <td>{{ result.r18_rate_increase}}</td>
+      </tr>
+     {% endfor %}
+    </tbody>
+  </table>
