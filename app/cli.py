@@ -11,7 +11,7 @@ from models import Word, SearchResult
 @click.command()
 @click.argument('pixiv_id')
 @click.argument('password')
-@click.option('--cron/--no-cron', default False)
+@click.option('--cron/--no-cron', default=False)
 def crawl(pixiv_id, password, cron):
     words = [w for w in Word.select().order_by(Word.id)]
     crawler = PixivCrawler()
