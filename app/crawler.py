@@ -14,27 +14,25 @@ class PixivCrawler:
 
     def login(self, pixiv_id, password):
         r = self.session.get(
-            'https://accounts.pixiv.net/login?lang=zh&source=pc&view_type=page&ref=wwwtop_accounts_index')
+            "https://accounts.pixiv.net/login?lang=zh&source=pc&view_type=page&ref=wwwtop_accounts_index"
+        )
         post_key = re.search(r'name="post_key" value="(\w+)"', r.text).group(1)
         url = "https://accounts.pixiv.net/login"
         data = {
-            'pixiv_id': pixiv_id,
-            'password': password,
-            'source': 'pc',
-            'lang': 'ja',
-            'return_to': 'https://www.pixiv.net/',
-            'post_key': post_key,
+            "pixiv_id": pixiv_id,
+            "password": password,
+            "source": "pc",
+            "lang": "ja",
+            "return_to": "https://www.pixiv.net/",
+            "post_key": post_key,
         }
         return self.session.post(url, data=data)
 
     def search(self, word, mode=None):
         url = "https://www.pixiv.net/search.php"
-        params = {
-            's_mode': 's_tag',
-            'word': word,
-        }
+        params = {"s_mode": "s_tag", "word": word}
         if mode:
-            params['mode'] = mode
+            params["mode"] = mode
         resp = self.session.get(url, params=params)
         self._current_response = resp
         return resp
@@ -43,7 +41,7 @@ class PixivCrawler:
         if not html:
             html = self._current_response.text
         soup = BeautifulSoup(html, "html.parser")
-        count_text = soup.find('span', class_='count-badge').text
+        count_text = soup.find("span", class_="count-badge").text
         return int(count_text[:-1])  # 'N件' の「件」を除外して返す
 
 

@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 import peewee as pw
 
-db = pw.SqliteDatabase('pixiv.db')
+db = pw.SqliteDatabase("pixiv.db")
 
 
 class BaseModel(pw.Model):
+
     class Meta:
         database = db
 
@@ -14,7 +15,7 @@ class Word(BaseModel):
 
 
 class SearchResult(BaseModel):
-    word = pw.ForeignKeyField(Word, backref='results')
+    word = pw.ForeignKeyField(Word, backref="results")
     stored_at = pw.DateField()
     num_of_safe = pw.IntegerField()
     num_of_r18 = pw.IntegerField()
