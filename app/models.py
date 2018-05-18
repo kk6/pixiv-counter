@@ -25,9 +25,8 @@ class SearchResult(BaseModel):
         return self.num_of_safe + self.num_of_r18
 
     def calc_r18_rate(self):
-        return self.num_of_r18 / self.num_of_all
+        return int((self.num_of_r18 / self.num_of_all) * 100)
 
     @property
     def rate_of_r18(self):
-        rate = self.calc_r18_rate()
-        return "{:.2}".format(rate)
+        return "{}".format(self.calc_r18_rate())

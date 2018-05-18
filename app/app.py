@@ -15,10 +15,6 @@ def deco(results, target_day):
             r.all_increase = r.num_of_all - yr.num_of_all
             r.safe_increase = r.num_of_safe - yr.num_of_safe
             r.r18_increase = r.num_of_r18 - yr.num_of_r18
-
-            _r18_rate_increase = r.calc_r18_rate() - yr.calc_r18_rate()
-            r.r18_rate_increase = "{:.2}".format(_r18_rate_increase)
-
         except SearchResult.DoesNotExist:
             pass
         yield r
